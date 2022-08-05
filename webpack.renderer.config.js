@@ -3,9 +3,32 @@ const plugins = require('./webpack.plugins');
 const path = require('path');
 
 rules.push({
-  test: /\.css$/,
-  use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-});
+  test: /\.s?css$/,
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader' },
+    { loader: 'postcss-loader',
+      options: {
+        postcssOptions: {
+          plugins: [
+            [
+              "postcss-preset-env",
+              {
+                // Options
+              },
+            ],
+          ],
+        },
+      },
+    },
+    { loader: 'sass-loader', options: {
+      additionalData: '@import "assets/styles/_variables.scss";',
+      sassOptions: {
+        includePaths: ['src']
+      }
+    } }],
+})
+
 //
 // rules.push({
 //   test: /\.svg$/i,
@@ -16,7 +39,14 @@ rules.push({
 // });
 
 rules.push({
-  test: /\.(png|jp(e*)g|svg|gif)$/,
+  test: /\.(ttf)$/,
+  use: {
+    loader: 'url-loader',
+  },
+})
+
+rules.push({
+  test: /\.(png|jpe?g|svg|gif)$/,
   use: [
     {
       loader: 'file-loader',
@@ -25,7 +55,7 @@ rules.push({
       },
     },
   ],
-});
+})
 
 module.exports = {
   module: {

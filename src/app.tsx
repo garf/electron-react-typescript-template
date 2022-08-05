@@ -6,6 +6,7 @@ import AppRoutes from './app-routes'
 function render() {
   const container = document.getElementById('app')
   const root = createRoot(container)
+
   root.render(
     <React.StrictMode>
       <HashRouter>

@@ -17,6 +17,7 @@ module.exports = {
   ],
   rules: {
     'semi': ['error', 'never'],
+    "import/no-unresolved": "off",
   },
   "parser": "@typescript-eslint/parser",
   "settings": {

@@ -16,8 +16,9 @@ if (require('electron-squirrel-startup')) {
 const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1344,
-    height: 1024,
+    title: 'Vitakit',
+    width: 1080,
+    height: 1500,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
