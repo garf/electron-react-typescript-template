@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "paths": {
+      "*": ["node_modules/*"],
+      "Api/*": ["src/api/*"],
+      "Assets/*": ["src/assets/*"],
+      "Components/*": ["src/components/*"],
+      "Layouts/*": ["src/layouts/*"],
+      "Services/*": ["src/services/*"],
+      "Views/*": ["src/views/*"],
+    },
+    "jsx": "react"
+  },
+  "include": ["src/**/*", "typings/custom/import-svg.d.ts"]
+}
